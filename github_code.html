@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用本地檔案發佈GitHub網頁教學</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #24292e;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        main {
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #24292e;
+            color: white;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        code,
+        pre {
+            background-color: #eee;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: auto;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .note {
+            background-color: #ffefd5;
+            padding: 1rem;
+            border-left: 4px solid #ffa500;
+            margin: 1rem 0;
+        }
+
+        .path {
+            background-color: #e8f4ff;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-family: monospace;
+        }
+
+        .step {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .step h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem auto;
+            border: 1px solid #ddd;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>使用本地檔案發佈GitHub網頁教學</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">簡介</a></li>
+            <li><a href="#prerequisites">前置準備</a></li>
+            <li><a href="#clone">下載儲存庫</a></li>
+            <li><a href="#add-files">添加檔案</a></li>
+            <li><a href="#commit-push">提交並上傳</a></li>
+            <li><a href="#deploy">部署網頁</a></li>
+            <li><a href="#troubleshooting">常見問題</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro">
+            <h2>簡介</h2>
+            <p>本教學將介紹如何從本地電腦（以您的檔案路徑為例）將HTML檔案上傳到GitHub，並部署為可訪問的網頁。我們將使用Git命令行工具來完成這個過程。</p>
+
+            <div class="note">
+                <strong>您的檔案資訊：</strong><br>
+                檔案路徑：<span class="path">D:\114\code\github_test\story\github_deployment.html</span><br>
+                檔案大小：13 KB<br>
+                修改日期：2025/4/1 上午 06:05
+            </div>
+        </section>
+
+        <section id="prerequisites">
+            <h2>前置準備</h2>
+            <div class="step">
+                <h3>步驟 1：安裝 Git</h3>
+                <p>如果您尚未安裝Git，請從<a href="https://git-scm.com/downloads" target="_blank">Git官網</a>下載並安裝。</p>
+            </div>
+
+            <div class="step">
+                <h3>步驟 2：配置 Git 用戶信息</h3>
+                <p>開啟命令提示字元（CMD）或PowerShell，執行以下命令設定您的Git用戶名和電子郵件：</p>
+                <pre>git config --global user.name "wuchishu"
+git config --global user.email "您的email@example.com"</pre>
+            </div>
+
+            <div class="step">
+                <h3>步驟 3：確認您已有GitHub帳號和儲存庫</h3>
+                <p>確保您已經有一個GitHub帳號（wuchishu）和一個儲存庫（story）。如果沒有，請先創建。</p>
+            </div>
+        </section>
+
+        <section id="clone">
+            <h2>從GitHub下載儲存庫到本地</h2>
+            <div class="step">
+                <h3>步驟 4：選擇或創建本地資料夾</h3>
+                <p>根據您的路徑，您已經在以下位置創建了資料夾：</p>
+                <div class="path">D:\114\code\github_test\story</div>
+                <p>如果您尚未創建這個資料夾結構，您需要先創建它。</p>
+            </div>
+
+            <div class="step">
+                <h3>步驟 5：複製（Clone）GitHub儲存庫</h3>
+                <p>使用CMD或PowerShell，導航到您想要放置儲存庫的父資料夾，然後克隆儲存庫：</p>
+                <pre>cd D:\114\code\github_test
+git clone https://github.com/wuchishu/story.git</pre>
+                <p>這將會從GitHub下載story儲存庫到您的本地資料夾。如果資料夾已經存在，且已經有.git資料夾（表示已經是一個Git儲存庫），則不需要再次克隆。</p>
+            </div>
+        </section>
+
+        <section id="add-files">
+            <h2>添加HTML檔案到儲存庫</h2>
+            <div class="step">
+                <h3>步驟 6：確認您的HTML檔案</h3>
+                <p>您已經創建了兩個HTML檔案：</p>
+                <ul>
+                    <li><code>github-tutorial.html</code> (5 KB)</li>
+                    <li><code>github_deployment.html</code> (13 KB)</li>
+                </ul>
+                <p>這些檔案位於 <span class="path">D:\114\code\github_test\story</span> 資料夾中。</p>
+            </div>
+
+            <div class="step">
+                <h3>步驟 7：如果需要，重命名其中一個檔案為 index.html</h3>
+                <p>要讓GitHub Pages正確顯示您的網頁，主頁文件應該命名為 <code>index.html</code>。您可以選擇將其中一個檔案重命名，或者新建一個index.html檔案。</p>
+                <p>重命名檔案的命令：</p>
+                <pre>rename github_deployment.html index.html</pre>
+                <p>或者，您也可以保留現有檔案名稱，但訪問時需要在URL後面指定檔案名。</p>
+            </div>
+        </section>
+
+        <section id="commit-push">
+            <h2>提交更改並上傳到GitHub</h2>
+            <div class="step">
+                <h3>步驟 8：打開命令提示字元並導航到儲存庫資料夾</h3>
+                <pre>cd D:\114\code\github_test\story</pre>
+            </div>
+
+            <div class="step">
+                <h3>步驟 9：將檔案添加到Git追蹤</h3>
+                <p>執行以下命令將您的HTML檔案添加到Git的暫存區：</p>
+                <pre>git add github-tutorial.html github_deployment.html</pre>
+                <p>或者添加所有檔案：</p>
+                <pre>git add .</pre>
+                <p>紅色圓圈圖標（如您截圖中所示）表示這些檔案尚未被Git追蹤。執行上述命令後，這些圖標會變為綠色，表示檔案已被添加到暫存區。</p>
+            </div>
+
+            <div class="step">
+                <h3>步驟 10：提交更改</h3>
+                <p>執行以下命令提交您的更改：</p>
+                <pre>git commit -m "新增GitHub教學和部署指南HTML檔案"</pre>
+                <p>這個命令將創建一個新的提交，包含您添加的檔案，並附上一條描述訊息。</p>
+            </div>
+
+            <div class="step">
+                <h3>步驟 11：上傳到GitHub</h3>
+                <p>執行以下命令將您的更改推送到GitHub：</p>
+                <pre>git push origin main</pre>
+                <p>系統可能會要求您輸入GitHub帳號和密碼或個人訪問令牌。</p>
+            </div>
+        </section>
+
+        <section id="deploy">
+            <h2>部署為GitHub Pages網頁</h2>
+            <div class="step">
+                <h3>步驟 12：前往GitHub網站啟用Pages功能</h3>
+                <ol>
+                    <li>打開瀏覽器，前往您的GitHub儲存庫頁面：<a href="https://github.com/wuchishu/story"
+                            target="_blank">https://github.com/wuchishu/story</a></li>
+                    <li>點擊「Settings」（設定）</li>
+                    <li>在左側選單中，向下滾動找到「Pages」選項</li>
+                    <li>在「Source」部分，選擇「Deploy from a branch」</li>
+                    <li>在「Branch」下拉選單中，選擇「main」分支和「/ (root)」資料夾</li>
+                    <li>點擊「Save」按鈕保存設定</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>步驟 13：等待部署完成</h3>
+                <p>GitHub需要幾分鐘時間來部署您的網站。部署完成後，您將在同一頁面看到一個綠色橫幅，顯示您的網站URL。</p>
+            </div>
+
+            <div class="step">
+                <h3>步驟 14：訪問您的網頁</h3>
+                <p>您的網頁現在可以通過以下URL訪問：</p>
+                <div class="path">https://wuchishu.github.io/story/</div>
+                <p>如果您沒有將檔案重命名為index.html，則需要在URL後面加上檔案名：</p>
+                <div class="path">https://wuchishu.github.io/story/github_deployment.html</div>
+                <div class="path">https://wuchishu.github.io/story/github-tutorial.html</div>
+            </div>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>常見問題與解決方法</h2>
+            <div class="note">
+                <h3>問題：push時要求輸入帳號密碼</h3>
+                <p><strong>解決方法：</strong> GitHub不再支持使用密碼進行Git操作。您需要創建一個個人訪問令牌（Personal Access Token）：</p>
+                <ol>
+                    <li>前往GitHub的Settings > Developer settings > Personal access tokens</li>
+                    <li>點擊"Generate new token"</li>
+                    <li>設定token的有效期和權限（至少需要repo權限）</li>
+                    <li>生成token後，在push時使用此token作為密碼</li>
+                </ol>
+            </div>
+
+            <div class="note">
+                <h3>問題：無法看到我的網頁或顯示404錯誤</h3>
+                <p><strong>解決方法：</strong></p>
+                <ul>
+                    <li>確保GitHub Pages功能已正確啟用</li>
+                    <li>確保您有一個名為index.html的檔案，或者在URL中指定正確的檔案名</li>
+                    <li>GitHub Pages部署可能需要幾分鐘時間，請耐心等待</li>
+                    <li>檢查您的儲存庫名稱和用戶名是否在URL中正確拼寫</li>
+                </ul>
+            </div>
+
+            <div class="note">
+                <h3>問題：檔案更新後網頁沒有更新</h3>
+                <p><strong>解決方法：</strong></p>
+                <ul>
+                    <li>確保您已經提交(commit)並推送(push)了更改</li>
+                    <li>清除瀏覽器緩存，或使用無痕模式訪問</li>
+                    <li>等待幾分鐘，GitHub Pages可能需要時間來更新</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 GitHub發佈教學 by wuchishu
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

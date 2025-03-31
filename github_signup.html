@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub註冊步驟指南</title>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #24292e;
+            text-align: center;
+            border-bottom: 2px solid #0366d6;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0366d6;
+            margin-top: 25px;
+        }
+
+        .step {
+            background-color: #f6f8fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #0366d6;
+        }
+
+        .step-number {
+            font-weight: bold;
+            color: #0366d6;
+            font-size: 18px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tip {
+            background-color: #fffbdd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #ffdf5d;
+        }
+
+        .important {
+            font-weight: bold;
+            color: #d73a49;
+        }
+
+        .security-section {
+            background-color: #f0fff4;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 25px;
+            border-left: 4px solid #2ea44f;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub註冊步驟指南</h1>
+
+    <div class="step">
+        <span class="step-number">步驟1：進入註冊頁面</span>
+        <p>開啟網頁瀏覽器，輸入GitHub官方網站（<a href="https://github.com" target="_blank">https://github.com</a>），點擊右上角的<strong>Sign
+                Up</strong>按鈕。</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">步驟2：填寫基本資料</span>
+        <p>在註冊表單中輸入以下資訊：</p>
+        <ul>
+            <li><strong>Username</strong>：選擇一個唯一的使用者名稱（需確保未被他人使用）</li>
+            <li><strong>Email address</strong>：填入有效的電子郵件地址（建議使用常用信箱）</li>
+            <li><strong>Password</strong>：設定一個符合複雜度要求的密碼（至少8個字元，包含數字和字母）</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <span class="step-number">步驟3：完成帳戶建立</span>
+        <p>填寫完成後按下<strong>Create account</strong>或<strong>Sign up for GitHub</strong>按鈕。系統會自動跳轉至方案選擇頁面。</p>
+        <div class="tip">
+            <p>個人使用者可直接選擇<strong>免費方案</strong>（Free Plan），然後點擊<strong>Continue</strong>按鈕跳過付費選項。這個免費方案已經足夠一般開發者使用。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">步驟4：信箱驗證</span>
+        <p>註冊後系統會發送驗證信件至您填寫的電子郵件：</p>
+        <ol>
+            <li>前往信箱收取GitHub發送的驗證郵件</li>
+            <li>點擊郵件中的<strong>Verify email address</strong>連結</li>
+            <li>完成驗證後即可正常登入和使用您的GitHub帳號</li>
+        </ol>
+        <div class="tip">
+            <p>若未收到驗證信，請檢查垃圾郵件資料夾或在登入頁面選擇「重新發送驗證信」選項。</p>
+        </div>
+    </div>
+
+    <div class="step security-section">
+        <span class="step-number">步驟5：進階設定建議（讓您的GitHub更安全與專業）</span>
+        <p>完成帳號註冊與驗證後，建議您進行以下設定來增強帳號的安全性和便利性：</p>
+
+        <h3>5.1 啟用雙重驗證（提升帳號安全）</h3>
+        <p>雙重驗證可以大幅提高您帳號的安全性，避免密碼洩露時帳號被盜用：</p>
+        <ul>
+            <li>點擊右上角頭像 → Settings → Security → Two-factor authentication</li>
+            <li>選擇驗證方式：手機應用程式（如Google Authenticator）或簡訊驗證</li>
+            <li>按照畫面指示完成設定</li>
+        </ul>
+        <div class="tip">
+            <p><span class="important">重要提示：</span> 設定雙重驗證時，務必保存恢復碼（Recovery Codes）在安全的地方，以防手機遺失時無法登入。</p>
+        </div>
+
+        <h3>5.2 SSH金鑰設定（方便代碼推送）</h3>
+        <p>設定SSH金鑰可以讓您不需要每次都輸入密碼就能安全地推送代碼：</p>
+        <ul>
+            <li>在電腦生成SSH金鑰對</li>
+            <li>點擊GitHub個人設定中的SSH and GPG keys選項</li>
+            <li>點擊New SSH key按鈕，將您的公鑰內容貼上</li>
+        </ul>
+        <div class="tip">
+            <p>如果您是初學者，可以先略過這一步，等熟悉基本操作後再回來設定。</p>
+        </div>
+
+        <h3>5.3 個人化設定（建立專業形象）</h3>
+        <p>完善個人資料可以讓您在協作專案時樹立專業形象：</p>
+        <ul>
+            <li>上傳頭像：點擊Settings → Profile → Upload new picture</li>
+            <li>填寫個人簡介：在個人資料頁面添加您的技能、興趣和專業領域</li>
+            <li>設定個人網站或社交媒體連結（如LinkedIn、Twitter等）</li>
+        </ul>
+        <div class="tip">
+            <p>良好的個人形象有助於您在開源社群中建立聲譽，提高與其他開發者協作的機會。</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">註冊完成後</span>
+        <p>完成上述步驟後，您可以：</p>
+        <ul>
+            <li>建立自己的程式庫（Repository）來存放專案</li>
+            <li>fork（複製）其他開源專案</li>
+            <li>關注感興趣的開發者和專案</li>
+            <li>參與開源專案的討論和貢獻</li>
+        </ul>
+    </div>
+
+    <div class="tip" style="margin-top: 30px;">
+        <p><span class="important">常見問題：</span> 如果信箱驗證一直失敗或遇到其他註冊問題，您可以：</p>
+        <ul>
+            <li>檢查垃圾郵件資料夾</li>
+            <li>嘗試使用不同的郵箱</li>
+            <li>查看GitHub的幫助文件</li>
+            <li>使用GitHub官方的支援服務尋求協助</li>
+        </ul>
+    </div>
+</body>
+
+</html>
