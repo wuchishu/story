@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub完整上傳教學 - wuchishu/story</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #24292e;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        main {
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #24292e;
+            color: white;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        code,
+        pre {
+            background-color: #eee;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>如何在GitHub上發佈檔案（新手完整教學）</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#step1">建立帳號與Repository</a></li>
+            <li><a href="#step2">安裝Git工具</a></li>
+            <li><a href="#step3">上傳檔案到GitHub</a></li>
+            <li><a href="#step4">確認檔案</a></li>
+            <li><a href="#troubleshooting">常見問題</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="step1">
+            <h2>步驟一：建立GitHub帳號與Repository</h2>
+            <p>進入GitHub官網，點擊「Sign up」註冊帳號；登入後點選「New repository」，設定名稱（如<code>story</code>）、描述與公開性（Public）。</p>
+        </section>
+
+        <section id="step2">
+            <h2>步驟二：安裝與設定Git</h2>
+            <p>從官方網站下載<a href="https://git-scm.com/downloads">Git</a>並安裝，透過終端機設定姓名及email，例如：</p>
+            <pre>
+git config --global user.name "wuchishu"
+git config --global user.email "您的email@example.com"
+            </pre>
+        </section>
+
+        <section id="step3">
+            <h2>步驟三：將檔案上傳到GitHub（完整指令與實例）</h2>
+            <ol>
+                <li>複製Repository網址，例如<code>https://github.com/wuchishu/story.git</code>，並於終端機執行：<br><code>git clone https://github.com/wuchishu/story.git</code>
+                </li>
+                <li>假設你在桌面創建一個名為<code>github_tutorial</code>的資料夾，內含一個檔案<code>index.html</code>，將此檔案複製到剛剛下載的資料夾（例如：<code>story</code>）中，然後進入該資料夾執行：<br><code>git add .</code>
+                </li>
+                <li>紀錄此次更新訊息，例如：<br><code>git commit -m "新增GitHub教學網頁"</code></li>
+                <li>將檔案推送至GitHub：<br><code>git push origin main</code></li>
+            </ol>
+        </section>
+
+        <section id="step4">
+            <h2>步驟四：確認檔案是否上傳成功</h2>
+            <p>登入GitHub確認檔案已經顯示在Repository。您可以訪問 <code>https://github.com/wuchishu/story</code> 來查看。</p>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>常見問題處理</h2>
+            <p>如遇需要輸入Personal Access Token，至GitHub的設定產生新的Token即可解決。</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 GitHub教學
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
