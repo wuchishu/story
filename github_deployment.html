@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub完整上傳教學 - wuchishu/story</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #24292e;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        main {
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #24292e;
+            color: white;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        code,
+        pre {
+            background-color: #eee;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: auto;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .note {
+            background-color: #ffefd5;
+            padding: 1rem;
+            border-left: 4px solid #ffa500;
+            margin: 1rem 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem auto;
+            border: 1px solid #ddd;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>如何在GitHub上發佈檔案（新手完整教學）</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#step1">建立帳號與Repository</a></li>
+            <li><a href="#step2">準備HTML檔案</a></li>
+            <li><a href="#step3">上傳檔案到GitHub</a></li>
+            <li><a href="#step4">啟用GitHub Pages</a></li>
+            <li><a href="#step5">訪問與分享網頁</a></li>
+            <li><a href="#troubleshooting">常見問題</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro">
+            <p>本教學將帶您一步步學習如何建立GitHub帳號、創建儲存庫（Repository）、上傳HTML檔案，以及如何使用GitHub
+                Pages發佈您的網頁，讓其他人能夠透過網址訪問您的網頁內容。我們將以實際案例「wuchishu/story」為範例。</p>
+        </section>
+
+        <section id="step1">
+            <h2>步驟一：建立GitHub帳號與Repository</h2>
+            <h3>1.1 註冊GitHub帳號</h3>
+            <ol>
+                <li>前往GitHub官網 <a href="https://github.com" target="_blank">https://github.com</a></li>
+                <li>點擊右上角的「Sign up」按鈕</li>
+                <li>填寫您的電子郵件、密碼和使用者名稱（例如，我們使用「wuchishu」作為範例）</li>
+                <li>完成驗證步驟並確認您的電子郵件</li>
+                <li>登入您的GitHub帳號</li>
+            </ol>
+
+            <h3>1.2 創建新的儲存庫（Repository）</h3>
+            <ol>
+                <li>登入後，點擊右上角的「+」圖標，選擇「New repository」</li>
+                <li>填寫儲存庫名稱（例如，我們使用「story」作為範例）</li>
+                <li>可選：添加儲存庫描述（例如「for a children story」）</li>
+                <li>選擇「Public」（公開）選項，讓所有人都能看到您的儲存庫</li>
+                <li>勾選「Add a README file」選項，這將自動創建一個README.md文件</li>
+                <li>點擊「Create repository」按鈕完成創建</li>
+            </ol>
+        </section>
+
+        <section id="step2">
+            <h2>步驟二：準備您的HTML網頁檔案</h2>
+            <p>您需要準備一個HTML檔案作為您的網頁內容。這個檔案可以是您已有的網頁，或者您可以創建一個新的。以下是範例HTML結構：</p>
+
+            <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-Hant"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;GitHub完整上傳教學 - wuchishu/story&lt;/title&gt;
+    &lt;style&gt;
+        /* 您的CSS樣式 */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;如何在GitHub上發佈檔案（新手完整教學）&lt;/h1&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;!-- 您的網頁內容 --&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &copy; 2025 GitHub教學
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+            <div class="note">
+                <strong>重要提示：</strong> 請確保您的主要HTML檔案名稱為 <code>index.html</code>，這樣GitHub Pages才能正確顯示您的網頁。
+            </div>
+        </section>
+
+        <section id="step3">
+            <h2>步驟三：將檔案上傳到GitHub（完整指令與實例）</h2>
+            <p>您有兩種方式可以上傳檔案：直接在GitHub網頁上傳或使用Git命令行工具。</p>
+
+            <h3>3.1 方法一：直接在GitHub網頁上傳（最簡單）</h3>
+            <ol>
+                <li>進入您剛創建的儲存庫頁面（例如：https://github.com/wuchishu/story）</li>
+                <li>點擊「Add file」按鈕，然後選擇「Upload files」</li>
+                <li>拖放您的HTML檔案到上傳區域，或點擊「choose your files」選擇檔案</li>
+                <li>在頁面底部填寫提交訊息，例如「新增GitHub教學網頁」</li>
+                <li>點擊「Commit changes」按鈕完成上傳</li>
+            </ol>
+
+            <h3>3.2 方法二：使用Git命令行工具</h3>
+            <ol>
+                <li>下載並安裝 <a href="https://git-scm.com/downloads" target="_blank">Git</a></li>
+                <li>打開終端機或命令提示字元，設定您的Git用戶名和電子郵件：
+                    <pre>git config --global user.name "wuchishu"
+git config --global user.email "您的email@example.com"</pre>
+                </li>
+                <li>複製（Clone）您的儲存庫到本地：
+                    <pre>git clone https://github.com/wuchishu/story.git</pre>
+                </li>
+                <li>假設你在桌面創建一個名為<code>github_tutorial</code>的資料夾，內含一個檔案<code>index.html</code>，將此檔案複製到剛剛下載的資料夾（例如：<code>story</code>）中
+                </li>
+                <li>進入儲存庫資料夾：
+                    <pre>cd story</pre>
+                </li>
+                <li>添加檔案到Git追蹤：
+                    <pre>git add .</pre>
+                    <p>這個指令中的「.」（點）代表「目前資料夾中的所有檔案」。<code>git add</code>指令告訴Git開始追蹤<code>story</code>資料夾中的所有新檔案或修改過的檔案。新加入的<code>index.html</code>檔案會被加入到Git的暫存區(staging
+                        area)，準備好被提交(commit)。</p>
+                </li>
+                <li>提交更改：
+                    <pre>git commit -m "新增GitHub教學網頁"</pre>
+                </li>
+                <li>上傳到GitHub：
+                    <pre>git push origin main</pre>
+                </li>
+            </ol>
+        </section>
+
+        <section id="step4">
+            <h2>步驟四：啟用GitHub Pages功能</h2>
+            <p>要將您的儲存庫變成可訪問的網頁，您需要啟用GitHub Pages功能：</p>
+            <ol>
+                <li>在您的儲存庫頁面，點擊頂部選單中的「Settings」（設定）</li>
+                <li>在左側選單中，向下滾動找到「Pages」選項（在"Code and automation"部分）</li>
+                <li>在「Source」部分，選擇「Deploy from a branch」</li>
+                <li>在「Branch」下拉選單中，選擇「main」分支和「/ (root)」資料夾</li>
+                <li>點擊「Save」按鈕保存設定</li>
+                <li>等待幾分鐘，GitHub完成部署</li>
+            </ol>
+            <div class="note">
+                <strong>注意：</strong> GitHub Pages需要幾分鐘時間來部署您的網站。請耐心等待。
+            </div>
+        </section>
+
+        <section id="step5">
+            <h2>步驟五：訪問與分享您的網頁</h2>
+            <p>一旦GitHub Pages功能啟用並完成部署，您將獲得一個可訪問的網址：</p>
+            <pre>https://[您的GitHub用戶名].github.io/[儲存庫名稱]/</pre>
+            <p>例如，根據我們的範例，網址將是：</p>
+            <pre>https://wuchishu.github.io/story/</pre>
+            <p>現在，任何人都可以通過這個網址訪問您的網頁了！</p>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>常見問題處理</h2>
+            <h3>我的檔案名稱不是index.html，網頁無法正常顯示</h3>
+            <p>解決方法：</p>
+            <ol>
+                <li>在儲存庫中點擊您的HTML檔案</li>
+                <li>點擊編輯按鈕（鉛筆圖標）</li>
+                <li>在編輯界面的檔案名稱欄位中，將檔案名稱改為「index.html」</li>
+                <li>在頁面底部填寫一個提交訊息（例如「重新命名為 index.html」）</li>
+                <li>點擊「Commit changes」按鈕</li>
+            </ol>
+
+            <h3>上傳後無法看到我的網頁</h3>
+            <p>可能原因和解決方法：</p>
+            <ul>
+                <li>GitHub Pages可能需要幾分鐘時間來部署您的網頁</li>
+                <li>確認您已經正確啟用GitHub Pages功能</li>
+                <li>確認您的HTML檔案命名為「index.html」</li>
+                <li>檢查網址是否正確（https://[用戶名].github.io/[儲存庫名]/）</li>
+            </ul>
+
+            <h3>如何添加其他檔案（如圖片、CSS或JavaScript）</h3>
+            <p>您可以按照相同的方式上傳其他檔案到您的儲存庫，然後在HTML檔案中引用它們：</p>
+            <ul>
+                <li>圖片：<code>&lt;img src="圖片檔案名稱.jpg" alt="描述"&gt;</code></li>
+                <li>CSS：<code>&lt;link rel="stylesheet" href="樣式檔案名稱.css"&gt;</code></li>
+                <li>JavaScript：<code>&lt;script src="腳本檔案名稱.js"&gt;&lt;/script&gt;</code></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 GitHub教學
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
