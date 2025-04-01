@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兒童繪本故事製作教學</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Microsoft JhengHei', '微軟正黑體', 'PingFang TC', 'Apple LiGothic', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f7f4;
+        }
+
+        /* Layout & Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #4a89dc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .nav-link:hover {
+            color: #f0f0f0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a89dc;
+            font-size: 2.5rem;
+        }
+
+        .page-description {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Tutorial Section */
+        .tutorial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .tutorial-section {
+            margin-bottom: 50px;
+        }
+
+        .tutorial-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #4a89dc;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .step {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid #4a89dc;
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a89dc;
+            margin-bottom: 10px;
+        }
+
+        .step-content {
+            font-size: 1.1rem;
+        }
+
+        .step-image {
+            margin: 20px 0;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .tip-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid #4a89dc;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            color: #4a89dc;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1 1 300px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #4a89dc;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 10px;
+        }
+
+        .footer-link a {
+            color: #eee;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link a:hover {
+            color: #4a89dc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #4a89dc;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .page-description {
+                font-size: 1rem;
+            }
+
+            .tutorial-container {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .step-number {
+                font-size: 1.3rem;
+            }
+
+            .step-content {
+                font-size: 1rem;
+            }
+
+            .footer-section {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">繪本故事教學</a>
+            <button class="nav-toggle" aria-label="切換導航">
+                ☰
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#overview" class="nav-link">概述</a></li>
+                <li class="nav-item"><a href="#chatgpt" class="nav-link">故事生成</a></li>
+                <li class="nav-item"><a href="#leonardo" class="nav-link">圖片生成</a></li>
+                <li class="nav-item"><a href="#webpage" class="nav-link">網頁製作</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <h1 class="page-title">如何製作兒童繪本故事網頁</h1>
+            <p class="page-description">本教學將帶您一步步學習如何使用AI工具創建兒童繪本故事，並將其製作成互動式網頁。</p>
+
+            <div class="tutorial-container">
+                <section id="overview" class="tutorial-section">
+                    <h2 class="section-title">教學概述</h2>
+                    <div class="step">
+                        <p class="step-content">在這個教學中，我們將學習如何使用以下工具來創建一個完整的兒童繪本故事網頁：</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>使用<strong>ChatGPT</strong>生成故事內容</li>
+                            <li>使用<strong>Leonardo AI</strong>生成故事插圖</li>
+                            <li>使用<strong>Visual Studio Code</strong>將故事和圖片整合成網頁</li>
+                        </ul>
+
+                        <div class="tip-box">
+                            <div class="tip-title">準備工作</div>
+                            <p>在開始之前，請確保您已經：</p>
+                            <ul style="margin-left: 20px; margin-top: 5px;">
+                                <li>註冊ChatGPT帳號</li>
+                                <li>註冊Leonardo AI帳號</li>
+                                <li>安裝Visual Studio Code</li>
+                                <li>在桌面創建一個名為「story」的文件夾</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="chatgpt" class="tutorial-section">
+                    <h2 class="section-title">第一部分：使用ChatGPT生成故事</h2>
+
+                    <div class="step">
+                        <div class="step-number">步驟 1</div>
+                        <div class="step-content">
+                            <p>登入ChatGPT，在對話框中輸入以下提示：</p>
+                            <div class="code-block">為了兒童教育我要製作繪本故事，一共10幕，盡量簡單，我的主角叫_____。請幫我生成</div>
+                            <p>（在空白處填入您想要的主角名稱）</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 2</div>
+                        <div class="step-content">
+                            <p>等待ChatGPT生成10幕故事大綱後，您可以進行微調，確保故事適合兒童閱讀。</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 3</div>
+                        <div class="step-content">
+                            <p>將故事翻譯成英文（這將幫助生成更好的圖片）。在對話框中輸入：</p>
+                            <div class="code-block">幫我翻譯成英文</div>
+                            <p>等待ChatGPT完成翻譯，然後保存這個英文版本，我們將用它來生成圖片。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="leonardo" class="tutorial-section">
+                    <h2 class="section-title">第二部分：使用Leonardo AI生成插圖</h2>
+
+                    <div class="step">
+                        <div class="step-number">步驟 4</div>
+                        <div class="step-content">
+                            <p>登入Leonardo AI，點擊「Library」找到上次生成的圖，上方有+號按下去。</p>
+                            <p>從主角名字後面開始複製文字到最後，打開word貼上，如下圖所示：</p>
+                            <img src="image1.jpg" alt="複製文字示例" class="step-image">
+                            <img src="image2.jpg" alt="複製場景內容示例" class="step-image">
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 5</div>
+                        <div class="step-content">
+                            <p>回到ChatGPT，複製場景1的內容貼到Word，接在前面那段話後面，如下圖所示：</p>
+
+                            <p>接著複製整段話貼到Leonardo AI：</p>
+                            <img src="image3.jpg" alt="Leonardo AI設置示例1" class="step-image">
+
+
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 6</div>
+                        <div class="step-content">
+                            <p>接著到Leonard去生成圖片，並下載，改檔名為image1，再貼到Word：</p>
+
+                            <img src="image4.jpg" alt="Leonardo AI設置示例2" class="step-image">
+                            <img src="image5.jpg" alt="Leonardo AI設置示例3" class="step-image">
+                            <img src="image6.jpg" alt="Leonardo AI設置示例4" class="step-image">
+                            <img src="image8.jpg" alt="Leonardo AI設置示例4" class="step-image">
+                            <img src="image9.jpg" alt="Leonardo AI設置示例4" class="step-image">
+                            <img src="image7.jpg" alt="生成圖片示例" class="step-image">
+                            <p>圖片貼到Word後的效果：</p>
+                            <img src="image10.jpg" alt="VS Code新增檔案" class="step-image">
+
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 7</div>
+                        <div class="step-content">
+                            <p>重複以上步驟直到image10，並儲存Word檔案。確保所有圖片都已重命名為image1、image2...一直到image10。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="webpage" class="tutorial-section">
+                    <h2 class="section-title">第三部分：創建網頁</h2>
+
+                    <div class="step">
+                        <div class="step-number">步驟 8</div>
+                        <div class="step-content">
+                            <p>在ChatGPT輸入以下提示，生成網頁代碼：</p>
+                            <div class="code-block">幫我生成一個大師級網頁，包含html, css,
+                                javascript還有導覽列，有footer，有rwd，我每一幕都有圖片，從image1一直到image10，請先幫我把位置空下來，然後生成一個檔案就好</div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 9</div>
+                        <div class="step-content">
+                            <p>到Windows桌面新增資料夾，命名為「story」，把先前製作好的image1到10都拉進資料夾裡。</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 10</div>
+                        <div class="step-content">
+                            <p>打開桌面的Visual Studio Code，點擊左上角的「File」，選擇「Open
+                                Folder」開啟資料夾，選取story資料夾，點選加號新增檔案，命名為「story.html」：</p>
+                            <img src="image11.jpg" alt="VS Code新增檔案" class="step-image">
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 11</div>
+                        <div class="step-content">
+                            <p>回到ChatGPT，將生成的HTML代碼複製到Visual Studio Code，再次點擊「File」，選擇「Save」保存檔案。</p>
+
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">步驟 12</div>
+                        <div class="step-content">
+                            <p>點開桌面的story資料夾，確認是否有HTML連結，並點開查看，你就會看到你生成的繪本故事網頁！</p>
+                            <div class="tip-box">
+                                <div class="tip-title">修改內容</div>
+                                <p>您可以隨時編輯HTML檔案，更新故事內容或調整設計。只需在VS Code中打開檔案，進行修改，然後保存即可。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tutorial-section">
+                    <h2 class="section-title">恭喜完成！</h2>
+                    <div class="step">
+                        <div class="step-content">
+                            <p>您已成功創建了一個互動式兒童繪本故事網頁！您可以將這個網頁分享給孩子們，或者用它來教學。</p>
+                            <p>如果您想進一步增強您的網頁，可以考慮以下改進：</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>添加背景音樂</li>
+                                <li>添加翻頁音效</li>
+                                <li>添加角色動畫</li>
+                                <li>創建多個故事並添加故事選擇頁面</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">關於本教學</h3>
+                <p>本教學旨在幫助教育工作者和家長利用現代技術工具創建互動式兒童教育內容，激發孩子們的閱讀興趣和創造力。</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">實用連結</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="https://chat.openai.com" target="_blank">ChatGPT官網</a></li>
+                    <li class="footer-link"><a href="https://leonardo.ai" target="_blank">Leonardo AI官網</a></li>
+                    <li class="footer-link"><a href="https://code.visualstudio.com" target="_blank">Visual Studio
+                            Code下載</a></li>
+                    <li class="footer-link"><a href="#" target="_blank">更多教學資源</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">聯絡我們</h3>
+                <ul class="footer-links">
+                    <li class="footer-link">有任何問題或建議？</li>
+                    <li class="footer-link">電子郵件: contact@example.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2025 兒童繪本故事教學. 版權所有.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 行動裝置導航切換
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 平滑滾動到錨點
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
